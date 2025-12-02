@@ -59,41 +59,6 @@ export class TcaUserPortalVpcStack extends BaseStack {
       });
     }
 
-    this.vpc.addInterfaceEndpoint("EcrApiEndpoint", {
-      service: ec2.InterfaceVpcEndpointAwsService.ECR,
-      subnets: {
-        subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
-      },
-    });
-
-    this.vpc.addInterfaceEndpoint("EcrDkrEndpoint", {
-      service: ec2.InterfaceVpcEndpointAwsService.ECR_DOCKER,
-      subnets: {
-        subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
-      },
-    });
-
-    this.vpc.addInterfaceEndpoint("CloudWatchLogsEndpoint", {
-      service: ec2.InterfaceVpcEndpointAwsService.CLOUDWATCH_LOGS,
-      subnets: {
-        subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
-      },
-    });
-
-    this.vpc.addInterfaceEndpoint("SecretsManagerEndpoint", {
-      service: ec2.InterfaceVpcEndpointAwsService.SECRETS_MANAGER,
-      subnets: {
-        subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
-      },
-    });
-
-    this.vpc.addInterfaceEndpoint("CloudWatchEndpoint", {
-      service: ec2.InterfaceVpcEndpointAwsService.CLOUDWATCH_MONITORING,
-      subnets: {
-        subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS,
-      },
-    });
-
     this.vpc.addGatewayEndpoint("S3Endpoint", {
       service: ec2.GatewayVpcEndpointAwsService.S3,
     });
